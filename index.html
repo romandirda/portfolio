@@ -7,129 +7,134 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <style>
-        html {
-  scroll-behavior: smooth;
-}
-
-         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-        }
-
-        header {
-            background-color: #111;
-            color: white;
-            padding: 20px;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 15px;
-        }
-
-        .hero {
-            background-color: #222;
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-        }
-
-        .hero h1 {
-            font-size: 40px;
-        }
-
-        .hero button {
-            padding: 10px 20px;
-            margin-top: 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        section {
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .projekty {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .karta {
-            background-color: white;
-            width: 250px;
-            padding: 20px;
-        }
-
-        footer {
-            background-color: #111;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-    </style>
-<header>
-    <nav>
-        <h2>MojePortfolio</h2>
-        <div>
-            <a href="#about">O mně</a>
-            <a href="#projekty">Projekty</a>
-            <a href="#kontakt">Kontakt</a>
-        </div>
-    </nav>
-</header>
-
-<section class="hero">
-    <h1>Ahoj, jsem student IT</h1>
-    <p>Tvořím weby a učím se programovat.</p>
-    <button>Kontaktuj mě</button>
-</section>
-
-<section id="about">
-    <h2>O mně</h2>
-    <p>Jsem student druhého ročníku IT. Zajímám se o webový vývoj a grafiku.</p>
-</section>
-
-<section id="projekty">
-    <h2>Moje projekty</h2>
-    <div class="projekty">
-        <div class="karta">
-            <h3>Projekt 1</h3>
-            <p>Jednoduchý web s podstránkama</p>
-            <a href="https://romandirda.endora.site">Web</a>
-        </div>
-        <div class="karta">
-            <h3>Projekt 2</h3>
-            <p>Mini hra v JavaScriptu.</p>
-        </div>
-        <div class="karta">
-            <h3>Projekt 3</h3>
-            <p>Školní databázový projekt.</p>
-        </div>
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Moje portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark py-3">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">
+      Moje <span style="color:#0dcaf0;">Portfolio</span>
+    </a>
+    <ul class="navbar-nav flex-row gap-4">
+      <li class="nav-item"><a class="nav-link" href="#home">Domů</a></li>
+      <li class="nav-item"><a class="nav-link" href="#about">O mně</a></li>
+      <li class="nav-item"><a class="nav-link" href="#skills">Dovednosti</a></li>
+      <li class="nav-item"><a class="nav-link" href="#projects">Projekty</a></li>
+      <li class="nav-item"><a class="nav-link" href="#contact">Kontakt</a></li>
+    </ul>
+  </div>
+</nav>
+<section id="home" class="py-5 bg-dark text-light">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-8">
+        <h1 class="fw-bold">Ahoj, jsem <span style="color:#0dcaf0;">Tvoje Jméno</span></h1>
+        <p class="fs-5 text-secondary">
+          Student IT zaměřený na webový vývoj. Učím se HTML, CSS, Bootstrap a postupně i JavaScript.
+        </p>
+        <a href="#projects" class="btn btn-primary mt-3">Moje projekty</a>
+      </div>
     </div>
+  </div>
+</section>
+<section id="about" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5 fw-bold">O mně</h2>
+    <div class="row">
+      <div class="col-md-8 mx-auto text-center">
+        <p>
+          Jsem student druhýho ročníku IT. Zajímám se o programování, tvorbu webů
+          a moderní technologie. Mým cílem je se neustále se zlepšovat.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="skills" class="py-5 bg-dark text-light">
+  <div class="container">
+    <h2 class="text-center mb-5 fw-bold">Dovednosti</h2>
+
+    <div class="row text-center">
+      <div class="col-md-4">
+        <div class="bg-black p-4 rounded shadow h-100">
+          <h4>HTML</h4>
+          <p class="text-secondary">Tvorba struktury webových stránek.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="bg-black p-4 rounded shadow h-100">
+          <h4>CSS</h4>
+          <p class="text-secondary">Styling, responzivita, moderní design.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="bg-black p-4 rounded shadow h-100">
+          <h4>Bootstrap</h4>
+          <p class="text-secondary">Rychlá tvorba responzivních webů.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="kontakt">
-    <h2>Kontakt</h2>
-    <p>Email: roman.dirda@educanet.cz</p>
+<!-- PROJECTS -->
+<section id="projects" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5 fw-bold">Projekty</h2>
+
+    <div class="row text-center">
+      <div class="col-md-6">
+        <div class="p-4 border rounded shadow-sm h-100">
+          <h5>Portfolio web</h5>
+          <p>Moje osobní stránka vytvořená pomocí Bootstrapu.</p>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="p-4 border rounded shadow-sm h-100">
+          <h5>Školní projekt</h5>
+          <p>Webová stránka vytvořená v rámci výuky IT.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<footer>
-    <p>© 2026 Moje Portfolio</p>
+<!-- CONTACT -->
+<section id="contact" class="py-5 bg-dark text-light">
+  <div class="container">
+    <h2 class="text-center mb-5 fw-bold">Kontakt</h2>
+
+    <div class="row text-center">
+      <div class="col-md-4">
+        <h5>Email</h5>
+        <p class="text-secondary">tvujemail@email.cz</p>
+      </div>
+
+      <div class="col-md-4">
+        <h5>GitHub</h5>
+        <p class="text-secondary">github.com/tvoje_jmeno</p>
+      </div>
+
+      <div class="col-md-4">
+        <h5>Lokalita</h5>
+        <p class="text-secondary">Česká republika</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-black text-light text-center py-3">
+  © 2025 Tvoje Jméno
 </footer>
-
 
 </body>
 </html>
