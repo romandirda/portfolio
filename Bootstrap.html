@@ -10,62 +10,49 @@
     <h1>Beautiful Image Gallery</h1>
     <p>A collection of stunning photographs</p>
 </div>
-
-<div class="container">
+    <div class="container py-5">
     <div class="row g-4">
 
-        <div class="col-lg-4 col-md-6 gallery-item">
-            <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1" alt="Animals" class="img-fluid h-100">
+        <div class="col-lg-4 col-md-6">
+            <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1" class="img-fluid gallery-img">
         </div>
 
-        <div class="col-lg-4 col-md-6 gallery-item">
-            <img src="https://images.unsplash.com/photo-1552083375-1447ce886485" alt="Architecture" class="img-fluid h-100">
+        <div class="col-lg-4 col-md-6">
+            <img src="https://images.unsplash.com/photo-1552083375-1447ce886485" class="img-fluid gallery-img">
         </div>
 
-        <div class="col-lg-4 col-md-6 gallery-item">
-            <img src="https://images.unsplash.com/photo-1516496636080-14fb876e029d" alt="Travel" class="img-fluid h-100">
+        <div class="col-lg-4 col-md-6">
+            <img src="https://images.unsplash.com/photo-1516496636080-14fb876e029d" class="img-fluid gallery-img">
         </div>
 
-        <div class="col-lg-4 col-md-6 gallery-item">
-            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Beach" class="img-fluid h-100">
+        <div class="col-lg-4 col-md-6">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" class="img-fluid gallery-img">
         </div>
 
-        <div class="col-lg-4 col-md-6 gallery-item">
-            <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba" alt="Mountains" class="img-fluid h-100">
+        <div class="col-lg-4 col-md-6">
+            <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba" class="img-fluid gallery-img">
         </div>
 
-        <div class="col-lg-4 col-md-6 gallery-item">
-            <img src="https://images.unsplash.com/photo-1516496636080-14fb876e029d" alt="Nature" class="img-fluid h-100">
+        <div class="col-lg-4 col-md-6">
+            <img src="https://images.unsplash.com/photo-1516496636080-14fb876e029d" class="img-fluid gallery-img">
         </div>
 
     </div>
 </div>
-  <style>
-    .gallery-item {
-    margin-bottom: 30px;
-    transition: transform 0.3s ease;
+    <style>
+        .gallery-img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:12px;
+transition:0.3s;
 }
 
-.gallery-item:hover {
-    transform: scale(1.03);
+.gallery-img:hover{
+transform:scale(1.03);
 }
 
-.gallery-item img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.gallery-title {
-    background: linear-gradient(45deg, #ff6b6b, #ff8e53);
-    padding: 40px 0;
-    margin-bottom: 40px;
-    color: white;
-    border-radius: 0 0 50px 50px;
-}
-  </style>
+</style>
 </body>
 </html>
 
