@@ -2,34 +2,32 @@ import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module
 import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
 
-// 1. Vytvoření scény a kamery
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+// Zacílíme přímo na náš ohraničený kontejner
+const container = document.getElementById("container3D");
 
-// Kamera je posunutá na hodnotu 150, aby obsáhla všechny tři velké kostky najednou
+// 1. Vytvoření scény a kamery (poměr stran se počítá z kontejneru, ne z okna)
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
 camera.position.z = 150; 
 
-// Globální proměnné pro ovládání
 let controls;
 
-// 2. Inicializace rendereru
+// 2. Inicializace rendereru uvnitř kontejneru
 const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.getElementById("container3D").appendChild(renderer.domElement);
+renderer.setSize(container.clientWidth, container.clientHeight);
+container.appendChild(renderer.domElement);
 
-// 3. Aktivace OrbitControls (ovládání myší na kliknutí a tažení)
+// 3. Aktivace OrbitControls
 controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true; 
 controls.dampingFactor = 0.05;
 
-// 4. Načtení 3D modelu a jeho rozmístění
+// 4. Načtení 3D modelu
 const loader = new GLTFLoader();
 loader.load(
-  './experiment .glb', // Kostka umístěná vedle index.html
+  './experiment .glb', 
   function (gltf) {
     const baseCube = gltf.scene;
-    
-    // Nastavení měřítka z Blenderu
     baseCube.scale.set(30, 30, 30); 
 
     // --- PROSTŘEDNÍ KOSTKA ---
@@ -39,15 +37,15 @@ loader.load(
 
     // --- LEVÁ KOSTKA ---
     const cube2 = baseCube.clone(); 
-    cube2.position.set(-80, 0, 0); // Výrazný posun doleva na ose X
+    cube2.position.set(-80, 0, 0); 
     scene.add(cube2);
 
     // --- PRAVÁ KOSTKA ---
     const cube3 = baseCube.clone(); 
-    cube3.position.set(80, 0, 0);  // Výrazný posun doprava na ose X
+    cube3.position.set(80, 0, 0); 
     scene.add(cube3);
 
-    console.log("Všechny 3 kostky byly úspěšně načteny a rozmístěny!");
+    console.log("3D modely bezpečně uzamčeny v boxu!");
   },
   function (xhr) {
     console.log((xhr.loaded / xhr.total * 100) + '% loaded');
@@ -57,8 +55,7 @@ loader.load(
   }
 );
 
-// 5. Osvětlení scény
-// DirectionalLight funguje jako slunce (paralelní paprsky), pozice určuje směr, odkud svítí
+// 5. Osvětlení
 const topLight = new THREE.DirectionalLight(0xffffff, 1.5);
 topLight.position.set(100, 100, 100); 
 scene.add(topLight);
@@ -66,24 +63,20 @@ scene.add(topLight);
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
 scene.add(ambientLight);
 
-// 6. Animační smyčka (vykreslování)
+// 6. Animační smyčka
 function animate() {
   requestAnimationFrame(animate);
-
-  // Aktualizace OrbitControls pro plynulý pohyb
   if (controls) {
     controls.update();
   }
-
   renderer.render(scene, camera);
 }
 
-// 7. Responzivita při změně velikosti okna prohlížeče
+// 7. Responzivita hlídá velikost KONTEJNERU, ne celého okna
 window.addEventListener("resize", function () {
-  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.aspect = container.clientWidth / container.clientHeight;
   camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setSize(container.clientWidth, container.clientHeight);
 });
 
-// Spuštění celé aplikace
 animate();
